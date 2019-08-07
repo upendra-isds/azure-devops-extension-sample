@@ -15,16 +15,22 @@ jobs:
   - template: azure-pipelines-steps.yml
   
 - job: always
+  pool:
+    vmImage: 'vs2017-win2016'
   steps:
   - script: echo "The build has finished"
     condition: always()
 
 - job: success
+  pool:
+    vmImage: 'vs2017-win2016'
   steps:
   - script: echo "Hurrah!!! The build succeeded"
     condition: succeeded()
 
 - job: failed
+  pool:
+    vmImage: 'vs2017-win2016'
   steps:
   - script: echo "The build failed"
     condition: failed()
