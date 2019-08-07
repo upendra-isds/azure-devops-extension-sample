@@ -14,3 +14,18 @@ jobs:
   steps:
   - template: azure-pipelines-steps.yml
   
+- job: always
+  steps:
+  - script: echo "The build has finished"
+    condition: always()
+
+- job: success
+  steps:
+  - script: echo "Hurrah!!! The build succeeded"
+    condition: succeeded()
+
+- job: failed
+  steps:
+  - script: echo "The build failed"
+    condition: failed()
+  
